@@ -23,11 +23,7 @@ function timeToWalk(numOfSteps, footstepsLength, speedKmH) {
   console.log(`${setHours}:${setMins}:${setSecs}`);
 }
 
-// timeToWalk(4000, 0.6, 5);
+timeToWalk(4000, 0.6, 5);
 timeToWalk(2564, 0.7, 5.5);
 
-// minava 5 km v chas
-// 5000 m v chas
-// 5000 m - 60min
-// 5000 m = 3660 s
-// 1 m = 3600 / 5000
+
