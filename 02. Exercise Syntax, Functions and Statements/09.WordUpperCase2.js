@@ -1,19 +1,13 @@
 function wordsUpperCase(input) {
-  let pattern = /[^A-Za-z0-9)]+/gm;
-
-  input.split(pattern);
-
-  console.log(
-    input
-      .split(pattern)
+  return  input
+      .split(/[^A-Za-z0-9)]+/)
       .join(" ")
       .trim()
       .split(" ")
       .map((x) => x.toUpperCase())
-      .join(", ")
-  );
+      .join(", ");
 }
 
-wordsUpperCase("Hi, how are you?");
+console.log(wordsUpperCase("Hi, how are you?"));
 
-wordsUpperCase("hello");
+
