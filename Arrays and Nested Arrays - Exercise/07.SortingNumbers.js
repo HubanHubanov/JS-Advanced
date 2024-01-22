@@ -9,10 +9,12 @@ function sortingNumbers(arr) {
     let smallest = arr.shift();
     res.push(smallest);
     let biggest = arr.pop();
-    res.push(biggest);
+    if (biggest !== undefined) {
+      res.push(biggest);
+    }
   }
 
-  return res
+  return res;
 }
 
 sortingNumbers([1, 65, 3, 52, 48, 63, 31, -3, 18, 56]);
