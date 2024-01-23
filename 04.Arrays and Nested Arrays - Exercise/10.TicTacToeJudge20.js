@@ -5,16 +5,10 @@ function ticTacToe(input) {
     [false, false, false],
   ];
 
-  let playerOne = false;
-
-  let index = 0;
-  let counter = 0
+  let playerOne = false
 
   for (let i = 0; i < input.length; i++) {
-    if (!board.flat().includes(false)) {
-      console.log("The game ended! Nobody wins :(");
-      break;
-    }
+    
 
     let sumFirstDiagonal = 0;
     let sumSecondaryDiagonal = 0;
@@ -66,37 +60,31 @@ function ticTacToe(input) {
       break;
     }
 
-    let [row, col] = input[i].split(" ");
-
-    if ((i + index) % 2 === 0) {
-      playerOne = true;
-    } else {
-      playerOne = false;
+    if (!board.flat().includes(false)) {
+      console.log("The game ended! Nobody wins :(");
+      break;
     }
+
+    let [row, col] = input[i].split(" ");
+    
+    playerOne = !playerOne;
 
     if (playerOne) {
       if (board[row][col] === false) {
         board[row][col] = 1;
       } else if (board[row][col] === 9 || board[row][col] === 1) {
         console.log("This place is already taken. Please choose another!");
-        index++;
-        counter ++
-        if(counter === 2) {
-            index = 0
-        }
+        playerOne = !playerOne;
       }
     } else {
       if (board[row][col] === false) {
         board[row][col] = 9;
       } else if (board[row][col] === 9 || board[row][col] === 1) {
         console.log("This place is already taken. Please choose another!");
-        index++;
-        counter ++
-        if(counter === 2) {
-            index = 0
-        }
+        playerOne = !playerOne;
       }
     }
+    
   }
 
   for (let i = 0; i < board.length; i++) {
