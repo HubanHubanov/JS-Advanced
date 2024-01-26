@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="username">Enter you name here:</label><br />
+      <input type="text" name="username" /><br />
+      <label for="password">Hope you remember the passsword:</label><br />
+      <input type="password" name="password" /><br />
+      <input type="submit" name="Log in" /><br />
+    </form>
+
+    <p>-----------------------------------------------------</p>
+
+    <form>
+      <label for="fname">First name:</label><br />
+      <input type="text" id="fname" name="fname" value="John" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <p>---------------------------------------</p>
+
+    <form action="">
+      <input type="text" />
+      <input type="number" />
+      <input type="password" />
+      <input type="email" />
+      <input type="search" />
+      <input type="checkbox" />
+      <input type="redio" />
+      <input type="range" />
+      <input type="submit" />
+      <input type="button" />
+      <input type="file" />
+    </form>
+    <p>-------------------------------------------------------------</p>
+    <form action="/register.php" method="get">
+      <label for="male">Male</label>
+      <input type="radio" id="male" name="male" value="Gender" />
+      <label for="female">Female</label>
+      <input type="radio" id="female" name="female" value="Gender" />
+    </form>
+    <p>-------------------------------------------------------------</p>
+
+    <p><input type="email" required="true" /></p>
+    <input type="submit" />
+
+    <p>-------------------</p>
+
+    <input
+      type="number"
+      placeholder="Enter text here"
+      autofocus
+      required
+      min="10"
+      max="110"
+    />
+    <input type="submit" />
+
+    <p>--------------------------------------------</p>
+
+    <label for="">Email adress</label>
+    <input
+      type="email"
+      size="48"
+      name="email"
+      required="true"
+      autofocus
+      placeholder="Enter a valid email address"
+    />
+
+    <p>Select--------------------------------------</p>
+
+    <form>
+      <label for="size">Size:</label>
+      <select id="size" name="size">
+        <option value="39">39 EU</option>
+        <option value="40">40 EU</option>
+        <option value="41.5">41.5 EU</option>
+        …
+      </select>
+    </form>
+  </body>
+</html>
