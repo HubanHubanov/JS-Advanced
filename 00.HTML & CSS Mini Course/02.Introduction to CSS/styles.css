@@ -1,0 +1,13 @@
+.special {
+    font-style: italic;
+    font-family: bold;
+    color: blue;
+}
+
+#modern{
+    background: #EEE;
+}
+
+p {
+    font-size: 24pt;
+}
