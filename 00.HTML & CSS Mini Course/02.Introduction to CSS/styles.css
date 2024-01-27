@@ -5,9 +5,37 @@
 }
 
 #modern{
-    background: #EEE;
+    background: #eee;
 }
 
 p {
     font-size: 24pt;
+}
+.language{
+    font-size: 30pt;
+}
+
+.love{
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    background: chartreuse;
+}
+
+span.beer{
+    background: yellow;
+    color: black;
+    font-size: 26pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a.beer {
+    font-size: 30pt;
+    background-color: yellowgreen;
+}
+
+h1{
+    color: blue;
+    background-image: -moz-element();
+    fo;
+    
 }
