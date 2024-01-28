@@ -1,0 +1,27 @@
+main {
+    background-color: #A6E1EC;
+    border: 1px solid black;
+    max-width: 700px;
+    padding: 12px;
+    margin : 12px
+}
+section article {
+    border: 1px solid black;
+    padding: 12px;
+    
+}
+
+section article img, article p{
+    display: inline-block;
+    vertical-align: middle;
+    color: #3C4AB6;
+}
+
+section article p, section article span {
+    color: #3A4DB5;
+    font-weight: bold;
+    
+}
+section article span d {
+    text-transform: uppercase;
+}
