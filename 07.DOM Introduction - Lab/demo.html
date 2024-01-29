@@ -13,6 +13,12 @@
       <li>DOM Methods Example</li>
       <li>DOM Properties Example</li>
       <li>DOM Events</li>
+      <script>
+        function edit(element, match, replacer) {
+          let content = element.textContent;
+          element.textContent =  content.split(match).join(replacer)
+        }
+      </script>
     </ul>
   <script src="/demo.js"></script>
   </body>
