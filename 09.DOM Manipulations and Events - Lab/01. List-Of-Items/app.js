@@ -2,14 +2,25 @@ function addItem() {
 
   let newLi = document.createElement("li");
   
-  let items = document.getElementById("items");
-  
-  items.appendChild(newLi);
-
   let textToAdd = document.getElementById("newItemText").value;
+  
+  if(textToAdd.length == 0) {
+    return
+  }
 
-  newLi.textContent = textToAdd;
+      let items = document.getElementById("items");
+      
+      items.appendChild(newLi);
+    
+    
+      newLi.textContent = textToAdd;
+    
+      document.getElementById("newItemText").value = ""
 
-  document.getElementById("newItemText").value = ""
+
+
+
+
+  
 
 }
