@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <button>Click me 0</button>
+    <button>Click me 0</button>
+    <button>Click me 0</button>
+    <button>Click me 0</button>
+
+
+<script>    
+    
+     let buttons = document.querySelectorAll("button")
+
+    for(let button of buttons) {
+        button.addEventListener("click", myFunction )
+    }
+
+    function myFunction(el) {
+        let btn = el.target
+      num = Number(btn.textContent.split(" ")[2])
+     btn.textContent = `Click me ${num +1}`
+        
+    }
+
+
+</script>
+
+    
+</body>
+</html>
