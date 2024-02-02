@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 32px;
+        }
+
+        .orange { background: orange; }
+        .green { background: green; }
+        .yellow { background: yellow; }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="orange">
+        <div class="green">
+        <div class="yellow">He-he</div>
+        </div>
+        </div>
+
+        <a id="link" href="/register">Link</LInk></a>
+<script>  
+
+document.getElementById("link").addEventListener("click", func)
+
+function func(event) {
+    event.preventDefault()
+
+}
+
+document.addEventListener("contextmenu", (e) => e.preventDefault())
+
+
+
+
+const divElements = document.querySelectorAll("div")
+
+
+divElements.forEach((e) => e.addEventListener("click", print, {capture : false}))
+
+function print(e) {
+    // e.stopPropagation()
+   console.log(this, "clicked")
+}
+   
+
+
+</script>
+
+
+    
+</body>
+</html>
