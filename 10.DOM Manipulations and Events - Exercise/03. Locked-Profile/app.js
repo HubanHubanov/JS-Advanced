@@ -13,10 +13,10 @@ function lockedProfile() {
     if (radioBtn.value === "unlock") {
       if (event.currentTarget.textContent === "Show more") {
         event.currentTarget.textContent = "Hide it";
-        hiddenInfo.stryle.display = "block";
+        hiddenInfo.style.display = "block";
       } else {
         event.currentTarget.textContent = "Show more";
-        hiddenInfo.stryle.display = "none";
+        hiddenInfo.style.display = "none";
       }
     }
   }
