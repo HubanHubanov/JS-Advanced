@@ -6,7 +6,10 @@ function argumentInfo(...arg) {
 
     if (!obj.hasOwnProperty(key)) {
       obj[key] = [el];
-    } else obj[key].push(el);
+    } else {
+
+        obj[key].push(el);
+    }
 
     console.log(typeof el + ": " + el);
   }
