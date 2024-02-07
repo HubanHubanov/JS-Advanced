@@ -44,15 +44,11 @@ function solution() {
       case "restock":
         return restock(type, qty);
 
-        break;
-
       case "prepare":
         return prepare(type, qty);
-        break;
 
       case "report":
         return report();
-        break;
     }
   };
 
