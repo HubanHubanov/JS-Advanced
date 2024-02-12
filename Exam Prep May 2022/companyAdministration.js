@@ -38,3 +38,11 @@ const companyAdministration = {
     }
 
 }
+
+// let c = companyAdministration
+// console.log(c.hiringEmployee("Ben", "IT", 4));
+
+
+export {
+    companyAdministration
+}
