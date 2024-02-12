@@ -1,86 +1,105 @@
 class VegetableStore {
-  constructor(owner, location) {
+  constructor(owner, location, availableProduct) {
     this.owner = owner;
     this.location = location;
-    this.availableProducts = [];
+    this.availableProduct = [];
   }
-  loadingVegetables(vegetables) {
-    const types = new Set();
-    vegetables
-      .map(
-        (x) =>
-          [
-            (x = x.split(" ")),
-            types.add(x[0]),
-            { type: x[0], quantity: Number(x[1]), price: Number(x[2]) },
-          ][2]
-      )
-      .forEach((p) => {
-        const find = this.availableProducts.find((x) => x.type === p.type);
-        find
-          ? [
-              (find.quantity += p.quantity),
-              find.price < p.price ? (find.price = p.price) : null,
-            ]
-          : this.availableProducts.push(p);
-      });
-    return `Successfully added ${[...types].join(", ")}`;
+
+  loadingVegetables(vegArr) {
+    for (let el of vegArr) {
+      let [name, count, price] = el.split(" ");
+      count = Number(count);
+      price = Number(price);
+
+      let found = this.availableProduct.find((x) => x.name === name);
+      if (!found) {
+        this.availableProduct.push({ name, count, price });
+      } else {
+        found.count += count;
+        if (found.price < price) {
+          found.price = price;
+        }
+      }
+    }
+    let resArr = [];
+
+    for (let el of this.availableProduct) {
+      resArr.push(el.name);
+    }
+
+    return `Successfully added ` + resArr.join(", ");
   }
-  buyingVegetables(selectedProducts) {
+
+  buyingVegetables(buyingArr) {
     let totalPrice = 0;
-    selectedProducts
-      .map((p) => ({
-        type: p.split(" ")[0],
-        quantity: Number(p.split(" ")[1]),
-      }))
-      .map((p) => {
-        const isExist = this.availableProducts.find((x) => x.type === p.type);
-        if (!isExist) {
+    for (let el of buyingArr) {
+      let [name, count] = el.split(" ");
+      count - Number(count);
+      let found = this.availableProduct.find((x) => x.name === name);
+      if (!found) {
+        throw new Error(
+          `${name} is not available in the store, your current bill is $${totalPrice.toFixed(
+            2
+          )}.`
+        );
+      } else {
+        if (found.count < count) {
           throw new Error(
-            `${
-              p.type
-            } is not available in the store, your current bill is $${totalPrice.toFixed(
+            `The quantity ${count} for the vegetable ${name} is not available in the store, your current bill is $${totalPrice.toFixed(
               2
             )}.`
           );
         }
-        if (isExist.quantity < p.quantity) {
-          throw new Error(
-            `The quantity ${p.quantity} for the vegetable ${
-              p.type
-            } is not available in the store, your current bill is $${totalPrice.toFixed(
-              2
-            )}.`
-          );
-        }
-        isExist.quantity -= p.quantity;
-        totalPrice += p.quantity * isExist.price;
-      });
+        found.count -= count;
+        let namePrice = count * found.price;
+        totalPrice += namePrice;
+      }
+    }
     return `Great choice! You must pay the following amount $${totalPrice.toFixed(
       2
     )}.`;
   }
-  rottingVegetable(type, quantity) {
-    const typeExist = this.availableProducts.find((p) => p.type === type);
-    if (!typeExist) {
-      throw new Error(`${type} is not available in the store.`);
-    }
-    if (typeExist.quantity < quantity) {
-      typeExist.quantity = 0;
-      return `The entire quantity of the ${type} has been removed.`;
-    }
-    typeExist.quantity -= quantity;
-    return `Some quantity of the ${type} has been removed.`;
-  }
-  revision() {
-    const products = this.availableProducts
-      .sort((a, b) => a.price - b.price)
-      .map((p) => `${p.type}-${p.quantity}-$${p.price}`);
 
-    return `Available vegetables:\n${products.join(
-      "\n"
-    )}\nThe owner of the store is ${this.owner}, and the location is ${
-      this.location
-    }.`;
+  rottingVegetable(name, count) {
+    count = Number(count);
+
+    let found = this.availableProduct.find((x) => x.name === name);
+    if (!found) {
+      throw new Error(`${name} is not available in the store.`);
+    }
+
+    if (found.count < count) {
+      found.count = 0;
+      return `The entire quantity of the ${name} has been removed.`;
+    } else {
+      found.count -= count;
+      return `Some quantity of the ${name} has been removed.`;
+    }
+  }
+
+  revision() {
+    let sorted = this.availableProduct.sort((a, b) => a.price - b.price);
+    let res = "Available vegetables:\n";
+    for (let el of sorted) {
+      res += `${el.name}-${el.count}-$${el.price}\n`;
+    }
+    res += `The owner of the store is ${this.owner}, and the location is ${this.location}.`;
+    return res;
   }
 }
+
+
+
+let vegStore = new VegetableStore("Jerrie Munro", "1463 Pette Kyosheta, Sofia");
+console.log(
+  vegStore.loadingVegetables([
+    "Okra 2.5 3.5",
+    "Beans 10 2.8",
+    "Celery 5.5 2.2",
+    "Celery 0.5 2.5",
+  ])
+);
+console.log(vegStore.rottingVegetable("Okra", 1));
+console.log(vegStore.rottingVegetable("Okra", 2.5));
+console.log(vegStore.buyingVegetables(["Beans 8", "Celery 1.5"]));
+console.log(vegStore.revision());
