@@ -59,3 +59,9 @@ const motorcycleRider = {
 
   }
 };
+
+export {
+  motorcycleRider
+}
+
+console.log(motorcycleRider.otherSpendings(["helmet",  "jim"], ["filter", "engine oil", "oil"],  true));

@@ -1,0 +1,15 @@
+{
+  "name": "exam-prep-feb-2024-viktor-kostadinov",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Motorcycle Rider.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^5.1.0"
+  }
+}
