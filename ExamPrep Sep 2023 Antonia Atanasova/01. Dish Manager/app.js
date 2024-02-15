@@ -20,7 +20,7 @@ function solve() {
   function onSubmit(e) {
     if (
       firstName.value === "" ||
-      lastName.valuee === "" ||
+      lastName.value === "" ||
       age.value === "" ||
       desc.value === ""
     ) {

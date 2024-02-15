@@ -18,14 +18,14 @@ function solve() {
   let counterRef = document.querySelector("#message #progress-count");
 
   function onSubmit(e) {
-    if (
-      firstName.value === "" ||
-      lastName.valuee === "" ||
-      age.value === "" ||
-      desc.value === ""
-    ) {
-      return;
-    }
+    // if (
+    //   firstName.value === "" ||
+    //   lastName.value === "" ||
+    //   age.value === "" ||
+    //   desc.value === ""
+    // ) {
+    //   return;
+    // }
 
     counterRef.textContent = Number(counterRef.textContent) + 1;
 
@@ -68,7 +68,7 @@ function solve() {
   function onEdit(e) {
     counterRef.textContent = Number(counterRef.textContent) - 1;
 
-    let elements = e.currentTarget.parentElement;
+    let elements = e.target.parentElement;
 
     let arr = Array.from(elements.children[0].children);
     let firstNameValue = arr[0].textContent.split(" ")[0];
@@ -76,33 +76,34 @@ function solve() {
     let genderValue = arr[1].textContent.split(" ")[0];
     let ageValue = arr[1].textContent.split(" ")[1];
     let descValue = arr[2].textContent.split(" ")[2];
-    inProgress.removeChild(elements);
 
     firstName.value = firstNameValue;
     lastName.value = lastNameValue;
     gender.value = genderValue;
     age.value = ageValue;
     desc.value = descValue;
+
+    inProgress.removeChild(elements);
   }
 
   function onComplete(e) {
     counterRef.textContent = Number(counterRef.textContent) - 1;
 
-    let elements = e.currentTarget.parentElement;
+    let elements = e.target.parentElement;
     elements.removeChild(elements.querySelector(".edit-btn"));
     elements.removeChild(elements.querySelector(".complete-btn"));
-
-    inProgress.removeChild(elements);
 
     finished.appendChild(elements);
 
     let clearBtn = document.getElementById("clear-btn");
-    clearBtn.addEventListener("click", onComplete);
+    clearBtn.addEventListener("click", onClear);
 
-    function onComplete(e) {
-      let allElements = e.currentTarget.parentElement;
-      let elToCLear = allElements.children[1].children[0];
-      finished.removeChild(elToCLear);
+    function onClear(e) {
+      let allElements = e.target.parentElement;
+      let elementsToClear = allElements.children[1].children;
+      for (let el of elementsToClear) {
+        el.remove();
+      }
     }
   }
 }
