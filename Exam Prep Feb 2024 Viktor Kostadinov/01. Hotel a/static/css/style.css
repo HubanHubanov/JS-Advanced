@@ -192,3 +192,6 @@ article> h3,p {
     color: red;
     text-align: center;
 }
+article > p, h3 {
+    border-bottom: 1px dotted black;
+}
