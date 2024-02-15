@@ -48,10 +48,8 @@ class ArtGallery {
   }
 
   buyArticle(articleModel, articleName, guestName) {
-    let foundName = this.listOfArticles.find(e => {
-      e.articleName === articleName
-    }
-    );
+    let foundName = this.listOfArticles.find(e => e.articleName === articleName)
+    
 
     if (!foundName) {
       throw new Error("This article is not found.");
@@ -103,8 +101,3 @@ class ArtGallery {
     }
   }
 }
-
-const artGallery = new ArtGallery('Curtis Mayfield');
-console.log(artGallery.addArticle('pictUre', 'Mona Liza', 3));
-console.log(artGallery.addArticle('picture', 'Mona Liza', 1));
-
